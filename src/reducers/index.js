@@ -20,7 +20,6 @@ export default function products(state = initialState, actions) {
         ...state,
         products: actions.products,
       };
-      break;
     case Add_cart:
       let flag = state.cart.indexOf(actions.cart);
       if (flag!==-1) {
@@ -34,14 +33,12 @@ export default function products(state = initialState, actions) {
           cart: [actions.cart, ...state.cart],
         };
       }
-      break;
 
     case Product_view:
       return {
         ...state,
         itemToDisplay: actions.view,
       };
-      break;
     case Cart_items:
       let { cart } = state;
       let total = cart.reduce((total, item) => {
@@ -51,7 +48,6 @@ export default function products(state = initialState, actions) {
         ...state,
         totalCart: total,
       };
-      break;
     case update_cart:
       let index = state.cart.indexOf(actions.updatedItem);
       let updatedCart = null;
